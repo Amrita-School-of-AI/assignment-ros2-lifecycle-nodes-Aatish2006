@@ -77,13 +77,14 @@ private:
     std::uniform_real_distribution<> dist_;
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
-    rclcpp::init(argc, argv);
-    auto node = std::make_shared<LifecycleSensor>();
-    rclcpp::executors::SingleThreadedExecutor executor;
-    executor.add_node(node->get_node_base_interface());
-    executor.spin();
-    rclcpp::shutdown();
-    return 0;
+  rclcpp::init(argc, argv);
+
+  auto node = std::make_shared<LifecycleSensor>();
+
+  rclcpp::spin(node->get_node_base_interface());
+
+  rclcpp::shutdown();
+  return 0;
 }
