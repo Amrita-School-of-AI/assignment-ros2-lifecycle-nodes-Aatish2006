@@ -13,7 +13,7 @@ class LifecycleSensor : public rclcpp_lifecycle::LifecycleNode
 {
 public:
     LifecycleSensor()
-        : LifecycleNode("lifecycle_sensor"),
+        : rclcpp_lifecycle::LifecycleNode("lifecycle_sensor"),
           gen_(rd_()),
           dist_(0.0, 100.0)
     {
